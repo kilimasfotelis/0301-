@@ -1,37 +1,16 @@
 package com.kcs.uzd.pask3;
 
-import com.kcs.uzd.pask3.utils.MyUtils;
-
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * Created by User on 2017-03-01.
  */
-public class uzd1 {
+public class nuskaitymas {
     public static void main(String[] args) {
-        List<String> names = new ArrayList<>();
-        readFile("persons.txt", names);
-        Collections.sort(names);
-        MyUtils.printList(names);
-        writeFile(names, "persons.txt");
+        readFile("persons.txt");
     }
-    private static void writeFile(List<String> names, String fileName){
-        try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter(new File(fileName)/* jei cia parasyciau ", true" tada rasytu ne ant virsaus o prirasytu*/));
-            for (String name : names){
-                bw.write(name);
-                bw.newLine();
-            }
-            bw.close();
-        } catch (IOException e) {
-            System.out.println("can't write to file: " + fileName);
-        }
-    }
-    private static void readFile(String fileName, List<String> names) {
+
+    private static void readFile(String fileName) {
         File file = new File(fileName);
         try {
             FileReader reader = new FileReader(file);
@@ -40,7 +19,7 @@ public class uzd1 {
             String name = null;
             try {
                 while ((name = bf.readLine()) != null){
-                    names.add(name);
+                    System.out.println(name);
                 }
             } catch (IOException e) {
                 System.out.println("can't read line");
